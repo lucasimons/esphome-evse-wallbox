@@ -21,7 +21,7 @@ DEPENDENCIES = ["evse_wallbox"]
 
 CODEOWNERS = ["@syssi"]
 
-DEFAULT_STEP = 1
+DEFAULT_STEP = 0.1
 
 CONF_OUTPUT_CURRENT_SETTING = "output_current_setting"
 CONF_OUTPUT_CURRENT_DEFAULT = "output_current_default"
