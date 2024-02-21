@@ -86,13 +86,13 @@ void EvseWallbox::on_config_data_(const std::vector<uint8_t> &data) {
   //
   // Register  Byte   Address Content: Description                      Decoded content               Coeff./Unit
   //   2000      0    0xFF 0xFF        Output current default                                         1.0 A
-  ESP_LOGI(TAG, "  Output current default: %d A", evse_get_16bit(0));
+  ESP_LOGI(TAG, "  Output current default: %.1f A", evse_get_16bit(0));
   this->publish_state_(this->output_current_default_number_, evse_get_16bit(0));
 
   //   2001      2    0x00 0xFF        Modbus address
   ESP_LOGI(TAG, "  Modbus address: %d", data[3]);
   //   2002      4    0xFF 0xFF        Minimum charging current                                       1.0 A
-  ESP_LOGI(TAG, "  Minimum charging current: %d A", evse_get_16bit(4));
+  ESP_LOGI(TAG, "  Minimum charging current: %.1f A", evse_get_16bit(4));
   this->publish_state_(this->min_charging_current_number_, evse_get_16bit(4));
 
   //   2003      6    0xFF 0xFF        Analog input config
