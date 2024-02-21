@@ -21,7 +21,7 @@ DEPENDENCIES = ["evse_wallbox"]
 
 CODEOWNERS = ["@syssi"]
 
-DEFAULT_STEP = 1
+DEFAULT_STEP = 0.1
 
 CONF_OUTPUT_CURRENT_SETTING = "output_current_setting"
 CONF_OUTPUT_CURRENT_DEFAULT = "output_current_default"
@@ -39,7 +39,7 @@ EVSE_NUMBER_SCHEMA = number.NUMBER_SCHEMA.extend(
     {
         cv.GenerateID(): cv.declare_id(EvseNumber),
         cv.Optional(CONF_ICON, default=ICON_EMPTY): cv.icon,
-        cv.Optional(CONF_STEP, default=1.0): cv.float_,
+        cv.Optional(CONF_STEP, default=0.1): cv.float_,
         cv.Optional(CONF_UNIT_OF_MEASUREMENT, default=UNIT_AMPERE): cv.string_strict,
         cv.Optional(CONF_MODE, default="BOX"): cv.enum(number.NUMBER_MODES, upper=True),
         cv.Optional(
@@ -53,14 +53,14 @@ CONFIG_SCHEMA = EVSE_WALLBOX_COMPONENT_SCHEMA.extend(
         cv.Optional(CONF_OUTPUT_CURRENT_SETTING): EVSE_NUMBER_SCHEMA.extend(
             {
                 cv.Optional(CONF_MIN_VALUE, default=0.0): cv.float_,
-                cv.Optional(CONF_MAX_VALUE, default=80.0): cv.float_,
+                cv.Optional(CONF_MAX_VALUE, default=32.0): cv.float_,
                 cv.Optional(CONF_ICON, default="mdi:battery-charging-90"): cv.icon,
             }
         ),
         cv.Optional(CONF_OUTPUT_CURRENT_DEFAULT): EVSE_NUMBER_SCHEMA.extend(
             {
-                cv.Optional(CONF_MIN_VALUE, default=6.0): cv.float_,
-                cv.Optional(CONF_MAX_VALUE, default=80.0): cv.float_,
+                cv.Optional(CONF_MIN_VALUE, default=5.0): cv.float_,
+                cv.Optional(CONF_MAX_VALUE, default=32.0): cv.float_,
                 cv.Optional(CONF_ICON, default="mdi:restart"): cv.icon,
             }
         ),
