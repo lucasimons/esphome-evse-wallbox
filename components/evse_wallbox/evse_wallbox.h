@@ -159,7 +159,7 @@ class EvseWallbox : public PollingComponent, public modbus::ModbusDevice {
   switch_::Switch *rcd_feedback_on_mclr_pin_switch_;
   switch_::Switch *auto_clear_rcd_error_switch_;
   switch_::Switch *an_internal_pullup_switch_;
-  switch_::Switch *pwm_debug_;
+  switch_::Switch *pwm_debug_switch_;
   switch_::Switch *disable_evse_after_charge_switch_;
   switch_::Switch *disable_evse_switch_;
   switch_::Switch *bootloader_mode_switch_;
