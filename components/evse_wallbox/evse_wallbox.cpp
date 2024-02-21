@@ -111,6 +111,7 @@ void EvseWallbox::on_config_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->rcd_feedback_on_mclr_pin_switch_, check_bit_(raw_config_bits, 16));
   this->publish_state_(this->auto_clear_rcd_error_switch_, check_bit_(raw_config_bits, 32));
   this->publish_state_(this->an_internal_pullup_switch_, check_bit_(raw_config_bits, 64));
+  this->publish_state_(this->pwm_debug_switch_, check_bit_(raw_config_bits, 128));  
   this->publish_state_(this->disable_evse_after_charge_switch_, check_bit_(raw_config_bits, 8192));
   this->publish_state_(this->disable_evse_switch_, check_bit_(raw_config_bits, 16384));
   this->publish_state_(this->bootloader_mode_switch_, check_bit_(raw_config_bits, 32768));
