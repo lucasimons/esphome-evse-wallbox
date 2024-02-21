@@ -48,14 +48,14 @@ CONFIG_SCHEMA = EVSE_WALLBOX_COMPONENT_SCHEMA.extend(
         cv.Optional(CONF_OUTPUT_CURRENT_SETTING): sensor.sensor_schema(
             unit_of_measurement=UNIT_AMPERE,
             icon=ICON_EMPTY,
-            accuracy_decimals=0,
+            accuracy_decimals=1,
             device_class=DEVICE_CLASS_CURRENT,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_OUTPUT_CURRENT): sensor.sensor_schema(
             unit_of_measurement=UNIT_AMPERE,
             icon="mdi:ev-plug-type2",
-            accuracy_decimals=0,
+            accuracy_decimals=1,
             device_class=DEVICE_CLASS_CURRENT,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
