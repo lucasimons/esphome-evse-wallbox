@@ -105,6 +105,10 @@ class EvseWallbox : public PollingComponent, public modbus::ModbusDevice {
   void set_an_internal_pullup_switch(switch_::Switch *an_internal_pullup_switch) {
     an_internal_pullup_switch_ = an_internal_pullup_switch;
   }
+  void set_pwm_debug_switch(switch_::Switch *pwm_debug_switch) {
+    pwm_debug_switch_ = pwm_debug_switch;
+  }
+
   void set_disable_evse_after_charge_switch(switch_::Switch *disable_evse_after_charge_switch) {
     disable_evse_after_charge_switch_ = disable_evse_after_charge_switch;
   }
@@ -155,6 +159,7 @@ class EvseWallbox : public PollingComponent, public modbus::ModbusDevice {
   switch_::Switch *rcd_feedback_on_mclr_pin_switch_;
   switch_::Switch *auto_clear_rcd_error_switch_;
   switch_::Switch *an_internal_pullup_switch_;
+  switch_::Switch *pwm_debug_;
   switch_::Switch *disable_evse_after_charge_switch_;
   switch_::Switch *disable_evse_switch_;
   switch_::Switch *bootloader_mode_switch_;
