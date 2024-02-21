@@ -22,9 +22,12 @@ CONF_CHARGING_OF_VEHICLE_STATUS_D = "charging_of_vehicle_status_d"
 CONF_RCD_FEEDBACK_ON_MCLR_PIN = "rcd_feedback_on_mclr_pin"
 CONF_AUTO_CLEAR_RCD_ERROR = "auto_clear_rcd_error"
 CONF_AN_INTERNAL_PULLUP = "an_internal_pullup"
+CONF_PWM_DEBUG = "pwm_debug"
+
 CONF_DISABLE_EVSE_AFTER_CHARGE = "disable_evse_after_charge"
 CONF_DISABLE_EVSE = "disable_evse"
 CONF_BOOTLOADER_MODE = "bootloader_mode"
+
 
 SWITCHES = {
     CONF_CURRENT_CHANGE_BY_BUTTON: [2005, 1],
@@ -34,6 +37,7 @@ SWITCHES = {
     CONF_RCD_FEEDBACK_ON_MCLR_PIN: [2005, 16],
     CONF_AUTO_CLEAR_RCD_ERROR: [2005, 32],
     CONF_AN_INTERNAL_PULLUP: [2005, 64],
+    CONF_PWM_DEBUG: [2005, 128],
     CONF_DISABLE_EVSE_AFTER_CHARGE: [2005, 8192],
     CONF_DISABLE_EVSE: [2005, 16384],
     CONF_BOOTLOADER_MODE: [2005, 32768],
@@ -106,6 +110,19 @@ CONFIG_SCHEMA = EVSE_WALLBOX_COMPONENT_SCHEMA.extend(
                 ): cv.entity_category,
             }
         ).extend(cv.COMPONENT_SCHEMA),
+        
+        cv.Optional(CONF_PWM_DEBUG): switch.SWITCH_SCHEMA.extend(
+            {
+                cv.GenerateID(): cv.declare_id(EvseSwitch),
+                cv.Optional(CONF_ICON, default=ICON_EMPTY): cv.icon,
+                cv.Optional(
+                    CONF_ENTITY_CATEGORY, default=ENTITY_CATEGORY_CONFIG
+                ): cv.entity_category,
+            }
+        ).extend(cv.COMPONENT_SCHEMA),
+
+
+        
         cv.Optional(CONF_DISABLE_EVSE_AFTER_CHARGE): switch.SWITCH_SCHEMA.extend(
             {
                 cv.GenerateID(): cv.declare_id(EvseSwitch),
